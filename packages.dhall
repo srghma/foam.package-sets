@@ -1,73 +1,44 @@
--- # Foam Space package set
---
--- overrides https://github.com/purescript/package-sets
---
--- ## Usage
---
--- In `package.dhall`
---
--- ```dhall
--- let upstream =
---       https://github.com/purescript/package-sets/releases/download/psc-0.14.5-20220110/packages.dhall sha256:8dbf71bfc6c7a11043619eebe90ff85f7d884541048aa8cc48eef1ee781cbc0e
---
--- let foamSpacePackages = https://raw.githubusercontent.com/f-o-a-m/package-sets/master/packages.dhall
---
--- let overrides = {=}
---
--- let additions = {=}
---
--- in  (upstream // foamSpacePackages // overrides // additions)
--- ```
---
--- To validate use
---
--- ```sh
--- dhall freeze --inplace ./packages.dhall
--- ```
---
--- # Why this approach?
---
--- This approach is used in https://github.com/srghma/my-purescript-package-sets
---
--- But here it's also possible to "override" packages from upstream
---
--- Like this https://github.com/srghma/my-purescript-package-sets/blob/00e26e6c2441de7fe27889d36435ba7ede2c39cc/packages.dhall#L160
---
--- ```dhall
---   ...
---  , node-http =
---     upstream.node-http
---     with repo = "https://github.com/srghma/purescript-node-http.git"
---     with version = "master"
---   ...
--- ```
-
 let foam-space-packages =
       { web3 =
           { dependencies =
               [ "aff"
-              , "avar"
-              , "console"
-              , "coroutines"
+              , "argonaut"
+              , "arrays"
+              , "bifunctors"
+              , "bytestrings"
+              , "control"
               , "coroutine-transducers"
-              , "debug"
+              , "coroutines"
               , "effect"
+              , "either"
               , "errors"
               , "eth-core"
+              , "exceptions"
+              , "foldable-traversable"
               , "foreign"
               , "foreign-generic"
+              , "foreign-object"
               , "fork"
-              , "free"
               , "heterogeneous"
-              , "identity"
+              , "integers"
+              , "maybe"
+              , "newtype"
+              , "parallel"
               , "parsing"
               , "partial"
+              , "prelude"
               , "profunctor-lenses"
-              , "proxy"
               , "psci-support"
+              , "record"
+              , "ring-modules"
+              , "simple-json"
+              , "strings"
               , "tagged"
+              , "tailrec"
               , "transformers"
+              , "tuples"
               , "typelevel-prelude"
+              , "unfoldable"
               , "variant"
               ]
           , repo =
@@ -77,20 +48,43 @@ let foam-space-packages =
           }
       , web3-generator =
           { dependencies =
-              [ "ansi"
+              [ "aff"
+              , "ansi"
               , "argonaut"
+              , "argonaut-codecs"
+              , "argonaut-core"
+              , "argonaut-traversals"
+              , "arrays"
+              , "bifunctors"
               , "console"
+              , "control"
               , "effect"
+              , "either"
               , "errors"
               , "eth-core"
+              , "exceptions"
               , "fixed-points"
-              , "open-mkdirp-aff"
+              , "foldable-traversable"
+              , "integers"
+              , "language-cst-parser"
+              , "lists"
+              , "maybe"
+              , "node-buffer"
+              , "node-fs"
               , "node-fs-aff"
+              , "node-path"
+              , "nonempty"
+              , "open-mkdirp-aff"
               , "ordered-collections"
+              , "partial"
               , "prelude"
+              , "profunctor-lenses"
               , "psci-support"
-              , "record-extra"
               , "string-parsers"
+              , "strings"
+              , "tidy-codegen"
+              , "transformers"
+              , "tuples"
               , "web3"
               , "yargs"
               ]
@@ -101,17 +95,49 @@ let foam-space-packages =
           }
       , chanterelle =
           { dependencies =
-              [ "console"
-              , "debug"
+              [ "aff"
+              , "ansi"
+              , "argonaut"
+              , "argonaut-core"
+              , "argonaut-traversals"
+              , "arrays"
+              , "avar"
+              , "bifunctors"
+              , "console"
+              , "control"
+              , "datetime"
               , "effect"
+              , "either"
+              , "eth-core"
+              , "exceptions"
+              , "foldable-traversable"
               , "foreign-object"
+              , "functions"
+              , "functors"
+              , "integers"
               , "logging"
-              , "open-mkdirp-aff"
+              , "maybe"
+              , "newtype"
+              , "node-buffer"
+              , "node-fs"
+              , "node-fs-aff"
+              , "node-path"
               , "node-process"
+              , "open-mkdirp-aff"
               , "optparse"
+              , "ordered-collections"
+              , "parallel"
+              , "partial"
               , "prelude"
+              , "profunctor-lenses"
               , "psci-support"
+              , "record"
+              , "refs"
               , "solc"
+              , "strings"
+              , "transformers"
+              , "tuples"
+              , "unfoldable"
               , "validation"
               , "web3"
               , "web3-generator"
@@ -159,11 +185,18 @@ let foam-space-packages =
           }
       , react-map-gl =
           { dependencies =
-              [ "prelude"
-              , "react"
-              , "web-mercator"
+              [ "aff"
+              , "aff-bus"
+              , "affjax"
+              , "console"
+              , "debug"
+              , "effect"
+              , "halogen"
+              , "prelude"
+              , "psci-support"
+              , "react-dom"
               , "simple-json"
-              , "generics-rep"
+              , "web-mercator"
               ]
           , repo =
               "https://github.com/f-o-a-m/purescript-react-map-gl"
@@ -172,13 +205,14 @@ let foam-space-packages =
           }
       , deck-gl =
           { dependencies =
-              [ "effect"
+              [ "console"
+              , "effect"
               , "foreign"
               , "foreign-object"
               , "prelude"
               , "psci-support"
-              , "web-mercator"
               , "react-dom"
+              , "web-mercator"
               ]
           , repo =
               "https://github.com/f-o-a-m/purescript-deck-gl"
@@ -187,7 +221,11 @@ let foam-space-packages =
           }
       , web-mercator =
           { dependencies =
-              [ "partial", "prelude", "functions" ]
+              [ "console"
+              , "effect"
+              , "prelude"
+              , "psci-support"
+              ]
           , repo =
               "https://github.com/f-o-a-m/purescript-web-mercator"
           , version =
@@ -195,7 +233,11 @@ let foam-space-packages =
           }
       , geohash =
           { dependencies =
-              [ "eth-core", "strings" ]
+              [ "eth-core"
+              , "prelude"
+              , "psci-support"
+              , "strings"
+              ]
           , repo =
               "https://github.com/f-o-a-m/purescript-geohash"
           , version =
@@ -203,13 +245,10 @@ let foam-space-packages =
           }
       , websocket-simple =
           { dependencies =
-              [ "exceptions"
+              [ "console"
+              , "effect"
               , "prelude"
-              , "arraybuffer-types"
-              , "nullable"
-              , "web-socket"
-              , "var"
-              , "generics-rep"
+              , "psci-support"
               ]
           , repo =
               "https://github.com/f-o-a-m/purescript-websocket-simple"
@@ -219,11 +258,11 @@ let foam-space-packages =
       , servant =
           { dependencies =
               [ "aff"
-              , "prelude"
               , "affjax"
-              , "heterogeneous"
-              , "errors"
               , "argonaut"
+              , "errors"
+              , "heterogeneous"
+              , "prelude"
               ]
           , repo =
               "https://github.com/f-o-a-m/purescript-servant"
