@@ -42,9 +42,9 @@ let foam-space-packages =
               , "variant"
               ]
           , repo =
-              "https://github.com/f-o-a-m/purescript-web3"
+              "https://github.com/srghma/purescript-web3"
           , version =
-              "v3.0.0"
+              "master"
           }
       , web3-generator =
           { dependencies =
@@ -89,9 +89,9 @@ let foam-space-packages =
               , "yargs"
               ]
           , repo =
-              "https://github.com/f-o-a-m/purescript-web3-generator"
+              "https://github.com/srghma/purescript-web3-generator"
           , version =
-              "v3.0.0"
+              "tidy"
           }
       , chanterelle =
           { dependencies =
@@ -143,9 +143,9 @@ let foam-space-packages =
               , "web3-generator"
               ]
           , repo =
-              "https://github.com/f-o-a-m/chanterelle"
+              "https://github.com/srghma/chanterelle"
           , version =
-              "v5.1.3"
+              "master"
           }
       , eth-core =
           { dependencies =
@@ -179,9 +179,9 @@ let foam-space-packages =
               , "web3"
               ]
           , repo =
-              "https://github.com/f-o-a-m/purescript-solc"
+              "https://github.com/srghma/purescript-solc"
           , version =
-              "v2.0.2"
+              "master"
           }
       , react-map-gl =
           { dependencies =
@@ -301,6 +301,99 @@ let other-packages =
           , version =
               "v0.0.4"
           }
+      , dodo-printer =
+        { dependencies =
+          [ "ansi", "foldable-traversable", "lists", "maybe", "strings" ]
+        , repo = "https://github.com/natefaubion/purescript-dodo-printer.git"
+        , version = "v2.1.0"
+        }
+      , language-cst-parser =
+        { dependencies =
+          [ "arrays"
+          , "const"
+          , "effect"
+          , "either"
+          , "foldable-traversable"
+          , "free"
+          , "functors"
+          , "maybe"
+          , "numbers"
+          , "ordered-collections"
+          , "strings"
+          , "transformers"
+          , "tuples"
+          , "typelevel-prelude"
+          ]
+        , repo =
+            "https://github.com/natefaubion/purescript-language-cst-parser.git"
+        , version = "v0.9.1"
+        }
+      , tidy =
+        { dependencies =
+          [ "arrays"
+          , "dodo-printer"
+          , "foldable-traversable"
+          , "lists"
+          , "maybe"
+          , "ordered-collections"
+          , "partial"
+          , "prelude"
+          , "language-cst-parser"
+          , "strings"
+          , "tuples"
+          ]
+        , repo =
+            "https://github.com/natefaubion/purescript-tidy.git"
+        , version = "v0.5.3"
+        }
+      , tidy-codegen =
+        { dependencies =
+          [ "aff"
+          , "ansi"
+          , "arrays"
+          , "avar"
+          , "bifunctors"
+          , "console"
+          , "control"
+          , "dodo-printer"
+          , "effect"
+          , "either"
+          , "enums"
+          , "exceptions"
+          , "filterable"
+          , "foldable-traversable"
+          , "free"
+          , "identity"
+          , "integers"
+          , "language-cst-parser"
+          , "lazy"
+          , "lists"
+          , "maybe"
+          , "newtype"
+          , "node-buffer"
+          , "node-child-process"
+          , "node-fs-aff"
+          , "node-path"
+          , "node-process"
+          , "node-streams"
+          , "ordered-collections"
+          , "parallel"
+          , "partial"
+          , "posix-types"
+          , "prelude"
+          , "record"
+          , "safe-coerce"
+          , "strings"
+          , "tidy"
+          , "transformers"
+          , "tuples"
+          , "type-equality"
+          , "unicode"
+          ]
+        , repo =
+            "https://github.com/natefaubion/purescript-tidy-codegen.git"
+        , version = "v1.1.1"
+        }
       }
 
 in  foam-space-packages ⫽ other-packages
